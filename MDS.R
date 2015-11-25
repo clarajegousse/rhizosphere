@@ -17,19 +17,18 @@ dim(data)
 
 library(cluster) # https://cran.r-project.org/web/packages/cluster/cluster.pdf
 
-# calculs des dissimilaritées
+# calculs des dissimilaritées avec daisy
 m <- daisy(data)
 m <- as.matrix(m)
+# check
 dim(m)
 summary(m)
 
-fit <- cmdscale(m, eig = TRUE, k = 2)
+# MDS avec cmdscale
+fit <- cmdscale(m, eig = TRUE, k = 2) # https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cmdscale.html
 x <- fit$points[, 1]
 y <- fit$points[, 2]
-plot(x, y, pch = 19, xlim = range(x) + c(0, 600))
 
-library(igraph)
-
-g <- graph.full(nrow(m))
-layout <- layout.mds(g, dist = as.matrix(m))
-plot(g, layout = layout, vertex.size = 3)
+# draw plot
+plot(x, y, xlab="Coordinate 1", ylab="Coordinate 2", main="Metric MDS", type="n")
+text(x, y, labels = row.names(data), cex=.7) 
