@@ -10,10 +10,13 @@ dim(data)
 
 # libraries
 library(cluster) # https://cran.r-project.org/web/packages/cluster/cluster.pdf
-#library(reshape2) # to do the transpose dataframe or matrix
 
 # transpose
 t.data <- t(data[2:32]) # remove data[1] which is the sequencing id
+
+# check
+dim(t.data)
+head(t.data)
 
 # calculs des dissimilaritées avec daisy
 m <- daisy(t.data)
