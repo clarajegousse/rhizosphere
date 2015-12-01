@@ -10,13 +10,10 @@ dim(data)
 
 # libraries
 library(cluster) # https://cran.r-project.org/web/packages/cluster/cluster.pdf
+#library(reshape2) # to do the transpose dataframe or matrix
 
 # transpose
 t.data <- t(data[2:32]) # remove data[1] which is the sequencing id
-
-# check
-dim(t.data)
-head(t.data)
 
 # calculs des dissimilaritées avec daisy
 m <- daisy(t.data)
@@ -38,8 +35,33 @@ plot(x, y, xlab = "", ylab = "")
 plot(x, y, xlab = "", ylab = "", type="n")
 text(x, y, labels = row.names(m), cex=.7) 
 
-# save plot as pdf
-pdf("MDS_phylum.pdf")
-plot(x, y, type="n", main="MDS solution in 2 dimensions of migroorganisms phylum of the rhizosphere")
-text(x, y, labels = row.names(m), cex=.7) 
+# other method for MSD
+
+#install.packages("vegan") # https://cran.r-project.org/web/packages/vegan/index.html
+library(vegan)
+
+m <- as.matrix(data[2:32], dimnames=list(data[1], colnames(data)))
+
+# NMDS http://cc.oulu.fi/~jarioksa/softhelp/vegan/html/metaMDS.html
+nmds=metaMDS(m,k=2,trymax=100) # metaMDS has automatically applied a square root transformation and calculated the Bray-Curtis distances for our community-by-site matrix
+
+# Shepard plot
+stressplot(nmds, p.col="slategray3", l.col="steelblue4")
+# shows scatter around the regression between the interpoint distances in the final configuration (i.e., the distances between each pair of pots) against their original dissimilarities.
+
+# Large scatter around the line suggests that original dissimilarities are not well preserved in the reduced number of dimensions. Looks pretty good in this case.
+
+# save Shepard plot 
+pdf("MDS_shepard_plot_phylum.pdf")
+stressplot(nmds, p.col="slategray3", l.col="steelblue4")
+dev.off()
+
+# draw basic plot
+plot(nmds)
+
+# draw plot with names
+pdf("NMDS_pots_phylum.pdf")
+ordiplot(nmds,type="n")
+orditorp(nmds,display="sites",cex=0.5 ,air=0.01, col="slategray3")
+orditorp(nmds,display="species",col="steelblue4",air=0.01, cex=1.25)
 dev.off()
