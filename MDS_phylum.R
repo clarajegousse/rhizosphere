@@ -35,7 +35,8 @@ plot(x, y, xlab = "", ylab = "")
 plot(x, y, xlab = "", ylab = "", type="n")
 text(x, y, labels = row.names(m), cex=.7) 
 
-# other method for MSD
+# NMDS tutorial with R
+# http://jonlefcheck.net/2012/10/24/nmds-tutorial-in-r/
 
 #install.packages("vegan") # https://cran.r-project.org/web/packages/vegan/index.html
 library(vegan)
@@ -64,4 +65,50 @@ pdf("NMDS_pots_phylum.pdf")
 ordiplot(nmds,type="n")
 orditorp(nmds,display="sites",cex=0.5 ,air=0.01, col="slategray3")
 orditorp(nmds,display="species",col="steelblue4",air=0.01, cex=1.25)
+dev.off()
+
+# Vegan: an introduction to ordination
+# https://cran.r-project.org/web/packages/vegan/vignettes/intro-vegan.pdf
+
+# 1. Ordination
+data(data)
+
+# Detrended correspondence analysis
+ord <- decorana(data)
+ord
+
+#  Non-metric multidimensional scaling
+ord <- metaMDS(data)
+ord
+
+# 2 Ordination graphics
+
+# basic plot
+plot(ord)
+
+# 2.1 Cluttered plots
+
+# sophisticated plot
+plot(ord, type = "n")
+points(ord, display = "sites", cex = 0.8, pch=21, col="slategray3", bg="slategray1")
+text(ord, display = "spec", cex=0.7, col="steelblue4")
+
+# 2.2 Adding items to ordination plots
+data.env <- read.table("synthese.csv", header=TRUE, sep=",", dec=".")
+head(data.env)
+dim(data.env)
+
+# create categorical variables for the total biomass
+data.env$cat.biomasse<-cut(data.env$Biomasse.totale_VS3, seq(0,1.5,0.5), right=FALSE, labels=c(1:3))
+summary(data.env$cat.biomasse)
+
+attach(data.env)
+
+# fancy plot :D
+pdf("NMDS_magic.pdf")
+plot(ord, disp="sites", type="n")
+ordihull(ord, data.env$cat.biomasse, col="blue")
+ordiellipse(ord, data.env$cat.biomasse, col=3,lwd=2)
+ordispider(ord, data.env$cat.biomasse, col="red", label = TRUE)
+points(ord, disp="sites", pch=21, col="red", bg="yellow", cex=1.3)
 dev.off()
