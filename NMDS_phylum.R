@@ -6,7 +6,7 @@ data <- read.table("../data/phylum_abundance.txt", header=TRUE, sep="\t", dec=".
 head(data)
 dim(data)
 
-#install.packages("vegan") # https://cran.r-project.org/web/packages/vegan/index.html
+# install.packages("vegan") # https://cran.r-project.org/web/packages/vegan/index.html
 library(vegan)
 
 # remove put ids (they are considered as a value comparable to bacteria abundance)
