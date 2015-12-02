@@ -3,6 +3,8 @@
 # MDS Multidimensional Scaling
 # bacteria phylum are considered as the individuals
 
+library(vegan)
+
 # data importation
 data <- read.table("../data/phylum_abundance.txt", header=TRUE, sep="\t", dec=".")
 head(data)
