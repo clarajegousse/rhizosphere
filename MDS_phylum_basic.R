@@ -49,5 +49,6 @@ V(g)$label <- row.names(m)
 layout <- layout.mds(g, dist = as.matrix(m))
 plot(g, layout = layout, vertex.size = 3)
 
-# export graph with saveNetwork
+# export graph with saveNetwork from BoolNet package
 # http://rgm.ogalab.net/RGM/R_rdfile?f=BioNet/man/saveNetwork.Rd&d=R_BC
+# http://www.inside-r.org/packages/cran/BoolNet/docs/saveNetwork
