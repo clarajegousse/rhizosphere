@@ -1,9 +1,15 @@
 # NMDS tutorial with R
 # http://jonlefcheck.net/2012/10/24/nmds-tutorial-in-r/
 
+# data importation
+data <- read.table("../data/phylum_abundance.txt", header=TRUE, sep="\t", dec=".")
+head(data)
+dim(data)
+
 #install.packages("vegan") # https://cran.r-project.org/web/packages/vegan/index.html
 library(vegan)
 
+# remove put ids (they are considered as a value comparable to bacteria abundance)
 m <- as.matrix(data[2:32], dimnames=list(data[1], colnames(data)))
 
 # NMDS http://cc.oulu.fi/~jarioksa/softhelp/vegan/html/metaMDS.html
