@@ -10,9 +10,8 @@ dim(data)
 
 # libraries
 library(cluster) # https://cran.r-project.org/web/packages/cluster/cluster.pdf
-#library(reshape2) # to do the transpose dataframe or matrix
 
-# transpose
+# transpose (other option is to use the melt function from the reshape2 package)
 t.data <- t(data[2:32]) # remove data[1] which is the sequencing id
 
 # calculs des dissimilaritées avec daisy
@@ -34,3 +33,21 @@ plot(x, y, xlab = "", ylab = "")
 # draw plot with phylum names
 plot(x, y, xlab = "", ylab = "", type="n")
 text(x, y, labels = row.names(m), cex=.7) 
+
+# use igraph
+# install.packages("igraph")
+library(igraph)
+
+# draw a graph with igraph package
+# x <- 0 - x
+# y <- 0 - y
+plot(x, y, pch = 19, xlim = range(x) + c(0, 600))
+text(x, y, pos = 4, labels = row.names(m))
+
+g <- graph.full(nrow(m))
+V(g)$label <- row.names(m)
+layout <- layout.mds(g, dist = as.matrix(m))
+plot(g, layout = layout, vertex.size = 3)
+
+# export graph with saveNetwork
+# http://rgm.ogalab.net/RGM/R_rdfile?f=BioNet/man/saveNetwork.Rd&d=R_BC
