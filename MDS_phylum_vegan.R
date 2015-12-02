@@ -1,3 +1,13 @@
+# script R
+# 2015.12.1
+# MDS Multidimensional Scaling
+# bacteria phylum are considered as the individuals
+
+# data importation
+data <- read.table("../data/phylum_abundance.txt", header=TRUE, sep="\t", dec=".")
+head(data)
+dim(data)
+
 # Vegan: an introduction to ordination
 # https://cran.r-project.org/web/packages/vegan/vignettes/intro-vegan.pdf
 
