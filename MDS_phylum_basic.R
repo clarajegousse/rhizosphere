@@ -52,8 +52,12 @@ plot(g, layout = layout, vertex.size = 3)
 get.vertex.attribute(g)
 get.edge.attribute(g)
 set_vertex_attr(g, "label", index = V(g), V(g)$label)
+
 # to save graph as leda format
 write.graph(g, "tmp/MDS_phylum_basic.gw", format="leda", edge.attr=NULL, vertex.attr="label")
+
+# to save graph as gml format
+write.graph(g, "tmp/MDS_phylum_basic.gml", format="gml", id=V(g)$label)
 
 # ~/bioanalyse/tmp$ natalie -g1 MDS_phylum_basic.gw -if1 5 -g2 MDS_phylum_basic.gw -if2 5 -of 4
 
