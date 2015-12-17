@@ -4,11 +4,11 @@
 # plant pots are the individuals, and all variables are used
 # save synthese sheet from Data_ecophy_pour_Christophe_def_v2-1.xlsx as synthese.csv
 
-bacteria <- read.table("phylum_abundance.txt", header=TRUE, sep="\t", dec=".")
+bacteria <- read.table("data/phylum_abundance.txt", header=TRUE, sep="\t", dec=".")
 head(bacteria)
 dim(bacteria)
 
-synthese <- read.table("synthese.csv", header=TRUE, sep=",", dec=".")
+synthese <- read.table("data/synthese.csv", header=TRUE, sep=",", dec=".")
 head(synthese)
 dim(synthese)
 
