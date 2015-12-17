@@ -2,8 +2,9 @@
 # 2015.12.02
 # to install all required packages
 
-install.packages("cluster", "igraph", "vegan")
+install.packages("cluster", "igraph", "vegan", "network")
 
+library(network)
 library(cluster)
 library(igraph)
 library(vegan)
