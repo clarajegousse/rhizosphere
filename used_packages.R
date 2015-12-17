@@ -7,3 +7,6 @@ install.packages("cluster", "igraph", "vegan")
 library(cluster)
 library(igraph)
 library(vegan)
+
+# igraph to convert to leda format :
+# http://www.inside-r.org/packages/cran/igraph/docs/write.graph
