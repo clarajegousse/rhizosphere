@@ -1,3 +1,5 @@
+# http://www.r-bloggers.com/network-visualization-in-r-with-the-igraph-package/
+
 bacteria <- read.table("data/phylum_abundance.txt", header=TRUE, sep="\t", dec=".")
 head(bacteria)
 dim(bacteria)
