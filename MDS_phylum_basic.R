@@ -4,7 +4,7 @@
 # bacteria phylum are considered as the individuals
 
 # data importation
-data <- read.table("../data/phylum_abundance.txt", header=TRUE, sep="\t", dec=".")
+data <- read.table("data/phylum_abundance.txt", header=TRUE, sep="\t", dec=".")
 head(data)
 dim(data)
 
@@ -48,6 +48,12 @@ g <- graph.full(nrow(m))
 V(g)$label <- row.names(m)
 layout <- layout.mds(g, dist = as.matrix(m))
 plot(g, layout = layout, vertex.size = 3)
+
+get.vertex.attribute(g)
+get.edge.attribute(g)
+#set_vertex_attr(g, "label", index = V(g), V(g)$label)
+# to save graph as leda format
+write.graph(g, "tmp/MDS_phylum_basic.gw", format="leda", edge.attr=NULL, vertex.attr=V(g)$label)
 
 # export graph with saveNetwork from BoolNet package
 # http://rgm.ogalab.net/RGM/R_rdfile?f=BioNet/man/saveNetwork.Rd&d=R_BC
