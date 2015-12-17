@@ -1,3 +1,8 @@
+ANALYSIS OF RHIZOSPHERE’S BACTERIAL COMMUNITIES - Creation and comparative analysis of graphs.
+ ----------
+ 
+Analyse des communautés bactériennes dans la rhizosphère
+
 Les plantes comme beaucoup d’organismes eucaryotes interagissent avec des microorganismes structurés en communautés. Parmi les niches d’interaction plante-communautés microbiennes, la rhizosphère, qui correspond à la zone d’interaction autour des racines des plantes est bien documentée. Cette niche est caractérisée par une diversité différente de celle du sol qui supporte la croissance et le développement de la plante et doit contribuer à la valeur adaptative de la plante à son environnement biotique et abiotique. Les derniers progrès dans les techniques de séquençage permettent aujourd’hui d’appréhender la diversité de ces communautés avec une sensibilité inégalée. Nous avons à disposition l’abondance relative des bactéries autour des racines. 
 
 Le projet a pour but de faire une analyse comparative des différentes méthodes de création de graphe d’interactions sur un même jeu de données.
