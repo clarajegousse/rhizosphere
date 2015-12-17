@@ -58,3 +58,4 @@ write.graph(g, "tmp/MDS_phylum_basic.gw", format="leda", edge.attr=NULL, vertex.
 # export graph with saveNetwork from BoolNet package
 # http://rgm.ogalab.net/RGM/R_rdfile?f=BioNet/man/saveNetwork.Rd&d=R_BC
 # http://www.inside-r.org/packages/cran/BoolNet/docs/saveNetwork
+# https://github.com/cytoscape/r-cytoscape.js/blob/master/README.md
