@@ -51,9 +51,9 @@ plot(g, layout = layout, vertex.size = 3)
 
 get.vertex.attribute(g)
 get.edge.attribute(g)
-#set_vertex_attr(g, "label", index = V(g), V(g)$label)
+set_vertex_attr(g, "label", index = V(g), V(g)$label)
 # to save graph as leda format
-write.graph(g, "tmp/MDS_phylum_basic.gw", format="leda", edge.attr=NULL, vertex.attr=V(g)$label)
+write.graph(g, "tmp/MDS_phylum_basic.gw", format="leda", edge.attr=NULL, vertex.attr="label")
 
 # export graph with saveNetwork from BoolNet package
 # http://rgm.ogalab.net/RGM/R_rdfile?f=BioNet/man/saveNetwork.Rd&d=R_BC
