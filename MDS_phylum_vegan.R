@@ -45,10 +45,10 @@ data.env$cat.biomasse<-cut(data.env$Biomasse.totale_VS3, seq(0,1.5,0.5), right=F
 summary(data.env$cat.biomasse)
 
 # fancy plot :D
-pdf("NMDS_magic.pdf")
-plot(ord, disp="sites", type="n")
-ordihull(ord, data.env$cat.biomasse, col="blue")
-ordiellipse(ord, data.env$cat.biomasse, col=3,lwd=2)
-ordispider(ord, data.env$cat.biomasse, col="red", label = TRUE)
-points(ord, disp="sites", pch=21, col="red", bg="yellow", cex=1.3)
-dev.off()
+# pdf("NMDS_magic.pdf")
+# plot(ord, disp="sites", type="n")
+# ordihull(ord, data.env$cat.biomasse, col="blue")
+# ordiellipse(ord, data.env$cat.biomasse, col=3,lwd=2)
+# ordispider(ord, data.env$cat.biomasse, col="red", label = TRUE)
+# points(ord, disp="sites", pch=21, col="red", bg="yellow", cex=1.3)
+# dev.off()
