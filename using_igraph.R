@@ -58,11 +58,6 @@ plot(	data.network,
 	edge.color="black"
 	)
 
-
-
-
-
-	
 plot(data.network,
 	layout=layout.fruchterman.reingold,
 	main='Organizational network example',	
