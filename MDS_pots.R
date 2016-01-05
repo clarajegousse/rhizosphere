@@ -21,6 +21,7 @@ library(cluster) # https://cran.r-project.org/web/packages/cluster/cluster.pdf
 # calculs des dissimilaritées avec daisy
 m <- daisy(data)
 m <- as.matrix(m)
+
 # check
 dim(m)
 summary(m)
